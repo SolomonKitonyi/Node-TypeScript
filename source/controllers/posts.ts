@@ -59,3 +59,19 @@ const deletePost = async (req: Request, res: Response, next: NextFunction) => {
         message: 'post deleted successfully'
     });
 };
+
+//adding a post
+const addPost = async (req: Request, res: Response, next: NextFunction) => {
+    //get the data from req.body
+    let title: string = req.body.title;
+    let body: string = req.body.body;
+    //add the post
+    let response: AxiosResponse = await axios.post(`https://jsonplaceholder.typicode.com/posts`, {
+        title,
+        body
+    });
+    //return response
+    return res.status(200).json({
+        message: response.data
+    });
+};
