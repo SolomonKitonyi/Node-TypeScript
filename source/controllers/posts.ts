@@ -75,3 +75,6 @@ const addPost = async (req: Request, res: Response, next: NextFunction) => {
         message: response.data
     });
 };
+
+
+export default {getPosts, getPost, updatePost, deletePost, addPost};
